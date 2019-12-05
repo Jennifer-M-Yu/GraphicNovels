@@ -93,11 +93,12 @@ label start:
 
     c "The letter says:"
     c "{i}%(player_name)s, I couldn't wake you up so I had to leave you here.{/i}"
-    c "{i}But you have to get out of here.{/i}"
-    c "{i}You need to leave this place, soon.{/i}"
+    c "{i}But you need to go find the ritual zone.{/i}"
+    c "{i}Then you need to leave this forest immediately, before he comes.{/i}"
     c "{i}And whatever you do, don't trust--{/i}"
 
     c "Someone grabs the letter from your hand and you jolt, startled."
+    #screen shakes
     c "It's a boy you don't recognize. You didn't even notice him climb into the treehouse."
 
     s "You're finally awake. I thought you'd never wake up."
@@ -190,6 +191,30 @@ label start:
     c "%(stranger_name)s's gaze hardens for a moment."
     s "No, I'll go talk to him."
 
+    #plot points
+    #stranger acting weird while getting food
+    #sees someone in the distance, telling you not to trust stranger
+    #finds an abandoned car (which is yours)
+    #ends up at a gate with your name on it
+    #realizes you're actually just on your own property and not in the middle of nowhere
+    #you steal the note from the stranger and run to the ritual site
+    #you summon the demon and the stranger ends up being the last piece
+
+    #five items
+    #1. food: meat, fish, or berries
+    #2. a flower
+    #3. after finding an abandoned car (yours), take the keys (there's a little keychain on it)
+    #4. at the gate, takes the hate mail from the mailbox
+    #5. the note
+
+    #MADLIBS blurb with shadow of demon
+    #Your worst nightmare.
+    #A [color] [scary thing] that runs rampant and follows you like a plague.
+    #You [embarassing action] on your way to [scary place].
+    #Nobody can see it except for you.
+    #You try to escape [worst way to die], but it haunts you in this form.
+    #But in the end, a demon is just a demon and if you keep it long enough, it'll eventually be harmless."
+    #demon is shown
 
     # This ends the game.
 
