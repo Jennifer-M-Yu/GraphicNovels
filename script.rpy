@@ -241,14 +241,14 @@ label start:
         s "No, it's fine, he could be dangerous."
         c "...You want to comment on the irony of that but you shut yourself up."
 
-        s "Oh I have something for you."
-        s "Happy birthday, %(player_name)s."
-        c "You want to be scared of him, but the card is handmade and you feel a little bad for doubting him now."
-        p "Oh. Thank you. This a nice picture, who is this?"
-        s "What? It's from the comic book you really like, the one called Watchman."
-        s "It was my Tracing the Page assignment from a few years ago."
-        p "Um okay."
-
+#cutting this scene for now--
+        #s "Oh I have something for you."
+        #s "Happy birthday, %(player_name)s."
+        #c "You want to be scared of him, but the card is handmade and you feel a little bad for doubting him now."
+        #p "Oh. Thank you. This a nice picture, who is this?"
+        #s "What? It's from the comic book you really like, the one called Watchman."
+        #s "It was my Tracing the Page assignment from a few years ago."
+        #p "Um okay."
 
     #plot points
     #stranger acting weird while getting food
