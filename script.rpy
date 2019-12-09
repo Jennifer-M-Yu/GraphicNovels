@@ -146,14 +146,26 @@ label start:
             c "Gambler Achievement earned."
             $ gambler = True
             s "Interesting choice... okay."
+            p "OUCH! OOF!"
+            s "ACK!"
+            c "A bush breaks your fall and a piece snaps off."
+            c "Item obtained. Bushy branch."
         "Zipline out of there.":
             c "Adventurer Achievement earned."
             $ adventurer = True
             s "That hasn't been used in ages, but sure."
+            s "You clip yourself and make it about halfway across when suddenly the rope snap."
+            p "OUCH! OOF!"
+            s "ACK!"
+            c "Item obtained. Zipline clip."
         "Take the ladder.":
             c "Safety First Achievement earned."
             $ safety = True
             s "There are a few steps missing on it, but eh, it'll be fine."
+            s "You make it about halfway down and then suddenly a rung of the ladder snaps off."
+            p "OUCH! OOF!"
+            s "ACK!"
+            c "Item obtained. Ladder piece."
 
     scene bg forest
     c "You both almost die, but make it down somehow."
@@ -182,13 +194,32 @@ label start:
     if hunter:
         scene bg huntd
         s "Our hunting gear and materials are stored down here. I'll just go grab and get everything set up."
+        c "The hunting grounds are beautiful, but somewhat eerie."
+        c "You've never hunted before, but %(stranger_name)s seems to be an expert."
+        s "Here, give it a try."
+        #tap on screen
+        c "Item obtained. Deer meat."
     if vegetarian:
         scene bg foraged
         s "Our gathering gear and materials are stored down here. I'll just go grab and get everything set up."
+        c "The forest is beautiful, but somewhat eerie."
+        c "You've never gathered food before, but %(stranger_name)s seems to be an expert."
+        s "Here, give it a try."
+        #tap on screen
+        c "Item obtained. Wild berries."
     if practical:
         scene bg fishd
         s "Our fishing gear and materials are stored down here. I'll just go grab and get everything set up."
+        c "The lake is beautiful, but somewhat eerie."
+        c "You've never fished before, but %(stranger_name)s seems to be an expert."
+        s "Here, give it a try."
+        #tap on screen
+        c "Item obtained. Large fish."
 
+    c "You're proud of yourself for accomplishing such a difficult task and turn to the %(stranger_name)s."
+    c "He smiles, but there's something off about it."
+    c "You suddenly feel like you did something wrong."
+    c "He doesn't leave you to your own thoughts for long."
     s "Wait here and don't go anywhere."
     c "After seeing that %(scary_object)s, his words just seem a little suspicious."
     c "You keep your expression blank."
@@ -212,7 +243,7 @@ label start:
             $ careful = True
             p "Hey %(stranger_name)s, I'm going to go to the bathroom real quick."
             s "Okay, don't go too far."
-            c "He waves you off."
+            c "He waves you off, unsuspecting."
             c "You trudge over to the man, but he drops something and runs off."
             p "Hey, hold on!"
             c "The man doesn't stop running."
@@ -238,16 +269,26 @@ label start:
         p "I can go chase him down and see what he wants."
 
         c "He quickly stops you with a hand around your wrist."
-        s "No, it's fine, he could be dangerous."
+        s "No, it's fine, he could be dangerous, I'll go check."
         c "...You want to comment on the irony of that but you shut yourself up."
+        c "As %(stranger_name)s walks off, you notice something in the corner of your eye."
 
-        s "Oh I have something for you."
-        s "Happy birthday, %(player_name)s."
-        c "You want to be scared of him, but the card is handmade and you feel a little bad for doubting him now."
-        p "Oh. Thank you. This a nice picture, who is this?"
-        s "What? It's from the comic book you really like, the one called Watchman."
-        s "It was my Tracing the Page assignment from a few years ago."
-        p "Um okay."
+    if loyal:
+        c "Item obtained. Whistle."
+    if yolo:
+        c "Item obtained. Cell phone."
+    if bystander:
+        c "Item obtained. Mask."
+
+    c "You manage to have decent meal. Food you obtained yourself tastes better."
+    s "This is pretty delicious."
+    $ color = renpy.input("You find it weird that the color of the food is")
+    if color == "":
+        $ color="black"
+    s "Seems pretty normal to me."
+    c "You make a face."
+    s "Why don't we take a little walk?"
+
 
 
     #plot points
@@ -260,11 +301,18 @@ label start:
     #you summon the demon and the stranger ends up being the last piece
 
     #five items
-    #1. rung of a ladder, clip from the zipline, bush breaks your fall -> you get a branch
-    #2. food: meat, fish, or berries
-    #3. after finding an abandoned car (yours), take the keys (there's a little keychain on it)
-    #4. at the gate, takes the hate mail from the mailbox
-    #5. the note
+    #DONE 1. rung of a ladder, clip from the zipline, bush breaks your fall -> you get a branch
+    #DONE 2. food: meat, fish, or berries
+    #DONE 3. whistle, cell phone, mask
+    #4. after finding an abandoned car (yours), take the keys (there's a little keychain on it)
+    #5. at the gate, takes the hate mail from the mailbox
+    #steals note and runs to ritual site
+
+    #DONE color
+    #DONE scary thing
+    #embarrassing action
+    #worst way to die
+    #DONE name you chose
 
     #MADLIBS blurb with shadow of demon
     #Your worst nightmare.
