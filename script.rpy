@@ -2,7 +2,7 @@ define c = Character("")
 define p = Character("player_name", dynamic=True)
 define player_name = ""
 define s = Character("stranger_name", dynamic=True)
-define stranger_name = "Strange Man"
+define stranger_name = "Strange Boy"
 image bg forest = "forest.jpg"
 image bg treehouse = "treehouse.jpg"
 image bg insideth = "insideth.jpg"
@@ -17,40 +17,25 @@ $ mouth = 0
 $ wings = 0
 $ body = 0
 
-$ curious = False
-$ lazy = False
-$ savage = False
-$ gambler = False
-$ adventurer = False
-$ safety = False
-$ hunter = False
-$ vegetarian = False
-$ practical = False
-$ hunter = False
-$ vegetarian = False
-$ practical = False
-$ careful = False
-$ loyal = False
-$ yolo = False
-$ bystander = True
+label splashscreen:
+    scene black
+    with Pause(1)
 
-#    scene bg forest
-# unsplash.com
+    show text "Jennifer and Abigail Presents..." with dissolve
+    with Pause(2)
 
-#label splashscreen:
-#    scene black
-#    with Pause(1)
-#
-#    show text "JenniferIsGod! Presents..." with dissolve
-#    with Pause(2)
-#
-#    hide text with dissolve
-#    with Pause(1)
-#
-#    return
+    hide text with dissolve
+    with Pause(1)
+
+    show text "Forest of Dreams" with dissolve
+    with Pause(2)
+
+    hide text with dissolve
+    with Pause(1)
+
+    return
 
 label start:
-    #show eileen happy
 
     c "..."
     c "....."
@@ -73,6 +58,11 @@ label start:
 
     c "The room lights up."
     c "It's the inside of a treehouse."
+
+    $ curious = False
+    $ lazy = False
+    $ savage = False
+
     $ boolean = True
     while boolean:
         menu:
@@ -95,7 +85,7 @@ label start:
 
     c "The letter says:"
     c "{i}%(player_name)s, I couldn't wake you up so I had to leave you here.{/i}"
-    c "{i}But you need to go find the ritual zone.{/i}"
+    c "{i}But you need to go find the ritual site.{/i}"
     c "{i}Then you need to leave this forest immediately, before he comes.{/i}"
     c "{i}And whatever you do, don't trust--{/i}"
 
@@ -141,6 +131,10 @@ label start:
     scene bg treehoused
     s "You can pretty much leave however you want to, which do you prefer?"
 
+    $ gambler = False
+    $ adventurer = False
+    $ safety = False
+
     menu:
         "Jump straight down. He did say however I want, after all.":
             c "Gambler Achievement earned."
@@ -177,9 +171,14 @@ label start:
 
     s "Phew, we made it down."
     c "He turns to you and you act like you didn't see anything."
-    P "Oh yeah... Haha."
+    p "Oh yeah... Haha."
 
     s "Well we have a lot of options, what are you in the mood for?"
+
+    $ hunter = False
+    $ vegetarian = False
+    $ practical = False
+
     menu:
         "Something with four legs, like a deer. Maybe watching %(stranger_name)s hunt will reveal something.":
             c "Hunter Achievement earned."
@@ -233,11 +232,27 @@ label start:
     c "He points and it takes you a while before you realize he's pointing at %(stranger_name)s."
     c "You raise an eyebrow."
 
+    $ careful = False
+    $ loyal = False
+    $ yolo = False
+    $ bystander = False
+
     menu:
         "Tell %(stranger_name)s that someone is there.":
             c "Loyal Achievement earned."
             $ loyal = True
             p "Hey %(stranger_name)s, I think there's someone over there."
+
+            c "%(stranger_name)s's head whips up and he spots the man. His gaze hardens for a moment."
+            c "The man visibly freezes and turns to run away."
+            c "Your heart starts beating faster."
+            p "I can go chase him down and see what he wants."
+
+            c "He quickly stops you with a hand around your wrist."
+            s "No, it's fine, this is a public forest. He could be dangerous, I'll go check."
+            c "...You want to comment on the irony of that but you shut yourself up."
+            c "As %(stranger_name)s walks off, you notice something in the corner of your eye."
+            c "Item obtained. Whistle."
         "Tell %(stranger_name)s that you're going to relieve yourself, but secretly go talk to the man.":
             c "Careful Achievement earned."
             $ careful = True
@@ -258,38 +273,200 @@ label start:
             c "YOLO Achievement earned."
             $ yolo = True
             p "HEY! WHAT'S THE MATTER?!"
+
+            c "%(stranger_name)s's head whips up and he spots the man. His gaze hardens for a moment."
+            c "The man visibly freezes and turns to run away."
+            c "Your heart starts beating faster."
+            p "I can go chase him down and see what he wants."
+
+            c "He quickly stops you with a hand around your wrist."
+            s "No, it's fine, this is a public forest. He could be dangerous, I'll go check."
+            c "...You want to comment on the irony of that but you shut yourself up."
+            c "As %(stranger_name)s walks off, you notice something in the corner of your eye."
+            c "Item obtained. Cell phone."
         "Do nothing.":
             c "Bystander Achievement earned."
             $ bystander = True
+            c "%(stranger_name)s's head whips up and he spots the man. His gaze hardens for a moment."
+            c "The man visibly freezes and turns to run away."
+            c "Your heart starts beating faster."
+            p "I can go chase him down and see what he wants."
 
-    if loyal or yolo or bystander:
-        c "%(stranger_name)s's head whips up and he spots the man. His gaze hardens for a moment."
-        c "The man visibly freezes and turns to run away."
-        c "Your heart starts beating faster."
-        p "I can go chase him down and see what he wants."
-
-        c "He quickly stops you with a hand around your wrist."
-        s "No, it's fine, he could be dangerous, I'll go check."
-        c "...You want to comment on the irony of that but you shut yourself up."
-        c "As %(stranger_name)s walks off, you notice something in the corner of your eye."
-
-    if loyal:
-        c "Item obtained. Whistle."
-    if yolo:
-        c "Item obtained. Cell phone."
-    if bystander:
-        c "Item obtained. Mask."
+            c "He quickly stops you with a hand around your wrist."
+            s "No, it's fine, this is a public forest. He could be dangerous, I'll go check."
+            c "...You want to comment on the irony of that but you shut yourself up."
+            c "As %(stranger_name)s walks off, you notice something in the corner of your eye."
+            c "Item obtained. Mask."
 
     c "You manage to have decent meal. Food you obtained yourself tastes better."
     s "This is pretty delicious."
-    $ color = renpy.input("You find it weird that the color of the food is")
-    if color == "":
-        $ color="black"
+    $ colorz = renpy.input("You find it weird that the color of the food is")
+    if colorz == "":
+        $ colorz="black"
     s "Seems pretty normal to me."
     c "You make a face."
     s "Why don't we take a little walk?"
 
+    p "So how exactly did I get up in the treehouse?"
+    c "You finally ask. Your memories all seem to be intact up until the forest."
+    s "Well, you climbed up yourself obviously."
+    p "But why did I sleep here? I have a perfectly good home in Ithaca, NY."
+    s "Well we're not in Ithaca right now."
+    p "Hm."
+    s "%(player_name), I have something that might jog your memory."
+    p "What is it?"
+    s "What was that one place that you never wanted to go to? Was it a church? Or like... a prep school or something?"
+    $ scary_place = renpy.input("I think it was a...")
+    if scary_place == "":
+        $ scary_place="prep school"
+    s "Yes! Well you mentioned it to me before we arrived, you had just come from there. Something about it giving you bad memories."
+    p "I guess so..."
+    s "Well, I'm sure you'll remember eventually."
 
+    #scene change
+    c "You stumble upon an abandoned car."
+    p "Isn't this... my car?"
+    c "%(stranger_name)s gives you a look and shrugs."
+    p "It's kind of run-down but yeah that's definitely my car."
+    s "Weird that it's in the middle of the grass like this."
+    c "Something on the windshield catches your attention."
+    p "Hey!"
+
+    $ speedy = False
+    $ unlucky = False
+    $ eyeforart = False
+
+    menu:
+        c "There's"
+        "an expensive speeding ticket!":
+            "Speedy Achievement earned."
+            $ speedy = True
+        "a broken mirror!":
+            "Unlucky Achievement earned."
+            $ unlucky = True
+        "graffiti all over my car!":
+            "Eye for Art Achievement earned."
+            $ eyeforart = True
+    p "This is unbelievable!"
+    s "I wonder how this happened."
+    p "I'm keeping these as evidence!"
+
+    if speedy:
+        "Item obtained. Parking ticket."
+    if unlucky:
+        "Item obtained. Broken mirror."
+    if eyeforart:
+        "Item obtained. Spray paint bottle."
+
+    p "Hey, the keys are in the car. Why don't we take these and look around a bit?"
+    c "It's the perfect opportunity for you to find a way out of here."
+    s "Sure. I can drive."
+    c "You panic immediately and rush to the driver's side."
+    p "I don't like people driving my car!"
+    c "%(stranger_name)s stares at you."
+    s "Okay."
+
+    c "It's mostly trees and more trees and you don't know if you'll have enough gas to make it anywehre."
+
+    s "%(player_name), what do you think about life and death?"
+    p "What do I think about it?"
+    s "What would you consider the scariest way to die? Being eaten by spiders? Suffocation?"
+    c "You find the question strange, but it's not like you haven't thought about this before."
+    $ death = renpy.input("I would say...")
+    if death == "":
+        $ death="loneliness"
+    s "That's where I don't agree."
+    c "You find the comment a little strange."
+    s "Sometimes the scariest ways to die are in life itself."
+    p "I don't really get it."
+    s "Yeah, that's why I asked."
+    c "You still don't get it."
+
+    p "Is that a gate over there?"
+    c "%(stranger_name)s is silent for a moment before speaking."
+    s "Maybe we shouldn't go out that way."
+    c "You know exactly what you want to do now."
+    p "Let's just check it out."
+    c "You stop the car and open the door. %(stranger_name)s follows you."
+
+    p "There a mailbox here."
+    c "You walk over and open it."
+    c "Item obtained. Black envelope."
+    c "It's a letter addressed... to you?"
+    s "Maybe you shouldn't open that."
+    p "It's for me so I'm going to open it."
+    c "You rip it open and there's an angry message waiting for you."
+    #insert note
+    p "Hate mail?"
+    s "Seems like it."
+    p "Wait a second."
+    c "It dawns on you all at once."
+    c "You said this was a public forest. But this is my property, isn't it?"
+    c "%(stranger_name)s is silent, his expression unmoving."
+    p "Why did you lie?"
+    p "Who..."
+    p "Who are you?"
+    c "%(stranger_name)s steps back and as if on cue, the note from earlier that day falls out of his pocket."
+    c "And whatever you do, don't trust %(stranger_name)s."
+    c "You don't know what comes over you, but you run away as fast as you can with one thing on your mind."
+    c "The ritual site."
+    s "Wait!"
+    c "You keep running, %(stranger_name)s hot on your tail."
+    c "Somehow, your insticts tell you where to go."
+    c "You arrive at the ritual site and %(stranger_name)s is nowhere to be found."
+    c "A large rock on the ritual site, gives you instructions."
+    #insert note
+    #place the items of your journey here
+    #and this is where it ends
+    #but perhaps, something will come of it
+
+    c "All of the items have been placed."
+    s "You finally did it."
+    c "You whip your head around and %(stranger_name) emerges."
+    s "Remember what I told you. Some things are scarier in life than in death."
+    c "Before you can say anything, %(stranger_name) steps into the center of the pentacle."
+    c "There's a bright flash."
+
+    scene black
+    with Pause(1)
+
+    show text "A %(colorz)s haze that runs rampant and follows you like a plague..." with dissolve
+    with Pause(2)
+    hide text with dissolve
+    with Pause(1)
+    show text "You feel like you're in an endless maze, trapped in the days inside a %(scary_place)s..." with dissolve
+    with Pause(2)
+    hide text with dissolve
+    with Pause(1)
+    show text "You haunted by escaping %(death)s but your real fears are in life..." with dissolve
+    with Pause(2)
+    hide text with dissolve
+    with Pause(1)
+    show text "Nobody can see it except for you..." with dissolve
+    with Pause(2)
+    hide text with dissolve
+    with Pause(1)
+    show text "Your demon's name is %(stranger_name)s." with dissolve
+    with Pause(2)
+    hide text with dissolve
+    with Pause(1)
+    show text "But in the end, a demon is just a demon and if you keep it long enough, it'll be a part of you." with dissolve
+    with Pause(2)
+    hide text with dissolve
+    with Pause(1)
+
+    #show demon
+
+    return
+
+
+    #A [color] [scary thing] that runs rampant and follows you like a plague.
+    #You feel like you're in an endless maze as if trapped in [scary place].
+    #Nobody can see it except for you.
+    #You try to escape [worst way to die], but it haunts you in this form.
+    #It's name is [name you chose]
+    #But in the end, a demon is just a demon and if you keep it long enough, it'll eventually be harmless."
+    #demon is shown
 
     #plot points
     #stranger acting weird while getting food
@@ -304,20 +481,20 @@ label start:
     #DONE 1. rung of a ladder, clip from the zipline, bush breaks your fall -> you get a branch
     #DONE 2. food: meat, fish, or berries
     #DONE 3. whistle, cell phone, mask
-    #4. after finding an abandoned car (yours), take the keys (there's a little keychain on it)
-    #5. at the gate, takes the hate mail from the mailbox
-    #steals note and runs to ritual site
+    #DONE 4. after finding an abandoned car (yours), take the keys (there's a little keychain on it)
+    #DONE 5. at the gate, takes the hate mail from the mailbox
+    #sees note and runs to ritual site
 
     #DONE color
     #DONE scary thing
-    #embarrassing action
-    #worst way to die
+    #DONE scary place
+    #DONE worst way to die
     #DONE name you chose
 
     #MADLIBS blurb with shadow of demon
     #Your worst nightmare.
     #A [color] [scary thing] that runs rampant and follows you like a plague.
-    #You [embarassing action] on your way to [scary place].
+    #You feel like you're in an endless maze as if trapped in [scary place].
     #Nobody can see it except for you.
     #You try to escape [worst way to die], but it haunts you in this form.
     #It's name is [name you chose]
