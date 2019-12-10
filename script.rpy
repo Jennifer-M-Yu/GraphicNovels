@@ -11,10 +11,24 @@ image bg fishd = "fishd.jpg"
 image bg foraged = "foraged.jpg"
 image bg huntd = "huntd.jpg"
 image bg treehoused = "treehoused.jpg"
+image bg treehouse_no_note = "treehouse_no_note.jpg"
+image bg treehouse_w_note = "treehouse_w_note.jpg"
+image adventure2 = "badge_adventure.png"
+image curious2 = "badge_curious.png"
+image gambler2 = "badge_gambler.png"
+image lazy2 = "badge_lazy.png"
+image safety2 = "badge_safety.png"
+image savage2 = "badge_savage.png"
+image stranger2 = "stranger_name.png"
+image note1 = "note1.png"
+image bush = "bush.jpg"
+image zipline = "zipline.jpg"
+image ladder = "ladder.jpg"
 define colorz = ""
 define scary_object = ""
 define death = ""
 define scary_place = ""
+define audio.ost = "audio/Dreaming.ogg"
 
 $ eye = 0
 $ mouth = 0
@@ -22,6 +36,7 @@ $ wings = 0
 $ body = 0
 
 label splashscreen:
+
     scene black
     with Pause(1)
 
@@ -31,7 +46,7 @@ label splashscreen:
     hide text with dissolve
     with Pause(1)
 
-    show text "A Quiet Forest" with dissolve
+    show text "One! In! A Hundred!" with dissolve
     with Pause(2)
 
     hide text with dissolve
@@ -40,6 +55,8 @@ label splashscreen:
     return
 
 label start:
+
+    play music audio.ost
 
     c "..."
     c "....."
@@ -58,7 +75,7 @@ label start:
             "Do nothing.":
                 c "Nothing happens. What a surprise."
 
-    scene bg treehouse
+    scene bg treehouse_w_note
 
     c "The room lights up."
     c "It's the inside of a treehouse."
@@ -71,11 +88,15 @@ label start:
     while boolean:
         menu:
             "Inspect the windows.":
+                show curious2 at truecenter
                 c "Curious Achievement earned."
+                hide curious2
                 $ curious = True
                 c "You're REALLY high up. Seems like an ordinary treehouse."
             "Lie in bed.":
+                show lazy2 at truecenter
                 c "Lazy Achievement earned."
+                hide lazy2
                 $ lazy = True
                 c "The bed's really comfortable. For some reason you were sitting on the floor this whole time."
             "Check the desk.":
@@ -87,14 +108,20 @@ label start:
     if player_name == "":
         $ player_name="Lynda"
 
-    c "The letter says:"
-    c "{i}%(player_name)s, I couldn't wake you up so I had to leave you here.{/i}"
-    c "{i}But you need to go find the ritual site.{/i}"
-    c "{i}Then you need to leave this forest immediately, before he comes.{/i}"
-    c "{i}And whatever you do, don't trust--{/i}"
+    scene bg treehouse_no_note
+    show note1
+    c "{i}To %(player_name)s...{/i}"
+    #c "The letter says:"
+    #c "{i}%(player_name)s, I couldn't wake you up so I had to leave you here.{/i}"
+    #c "{i}But you need to go find the ritual site.{/i}"
+    #c "{i}Then you need to leave this forest immediately, before he comes.{/i}"
+    #c "{i}And whatever you do, don't trust--{/i}"
+    c "You read it and your heart starts pounding faster."
+    hide note1
 
     c "Someone grabs the letter from your hand and you jolt, startled."
     #screen shakes
+    show stranger2 at right
     c "It's a boy you don't recognize. You didn't even notice him climb into the treehouse."
 
     s "You're finally awake. I thought you'd never wake up."
@@ -111,7 +138,9 @@ label start:
             "Ask him who he is.":
                 $ boolean = False
             "Tell him to go away.":
+                show savage2 at truecenter
                 c "Savage Achievement earned."
+                hide savage2
                 c "He looks surprised for a moment as if unsure about something but laughs it off."
                 s "That's not very nice. Plus, you're the one that called me here."
                 $ savage = True
@@ -141,31 +170,42 @@ label start:
 
     menu:
         "Jump straight down. He did say however I want, after all.":
+            show gambler2 at truecenter
             c "Gambler Achievement earned."
+            hide gambler2
             $ gambler = True
             s "Interesting choice... okay."
+            scene bush
             p "OUCH! OOF!"
             s "ACK!"
             c "A bush breaks your fall and a piece snaps off."
             c "Item obtained. Bushy branch."
         "Zipline out of there.":
+            show adventure2 at truecenter
             c "Adventurer Achievement earned."
+            hide adventure2
             $ adventurer = True
             s "That hasn't been used in ages, but sure."
+            scene zipline
             s "You clip yourself and make it about halfway across when suddenly the rope snap."
             p "OUCH! OOF!"
             s "ACK!"
             c "Item obtained. Zipline clip."
         "Take the ladder.":
+            show safety2 at truecenter
             c "Safety First Achievement earned."
+            hide safety2
             $ safety = True
             s "There are a few steps missing on it, but eh, it'll be fine."
+            scene ladder
             s "You make it about halfway down and then suddenly a rung of the ladder snaps off."
             p "OUCH! OOF!"
             s "ACK!"
             c "Item obtained. Ladder piece."
 
     scene bg forest
+
+    show stranger2 at right
     c "You both almost die, but make it down somehow."
     c "You look over to %(stranger_name)s to sigh in relief, but then you notice something odd."
 
@@ -220,17 +260,22 @@ label start:
         c "Item obtained. Large fish."
 
     c "You're proud of yourself for accomplishing such a difficult task and turn to the %(stranger_name)s."
+    show stranger2 at right
     c "He smiles, but there's something off about it."
     c "You suddenly feel like you did something wrong."
     c "He doesn't leave you to your own thoughts for long."
-    s "Wait here and don't go anywhere."
-    c "After seeing that %(scary_object)s, his words just seem a little suspicious."
+    s "Let's go back and I'll set up our meal."
+    c "After seeing that %(scary_object)s, all of his words just seem a little suspicious."
     c "You keep your expression blank."
     p "Sure."
+
+
+    scene bg forest
+    show stranger2 at right
     c "A few minutes pass and %(stranger_name)s seems like he won't be done for a while."
 
     #screen shift or shake, noise?
-    c "Something in the distance catches your eye. It's a man."
+    c "But something in the distance catches your eye. It's a man."
     c "%(stranger_name)s is busy so you squint at the figure. The man seems to be trying to contact you."
     c "The man desperately jumps up and down and shakes his head. He makes an X motion with his arms and gestures aggressively."
     c "He points and it takes you a while before you realize he's pointing at %(stranger_name)s."
@@ -262,17 +307,18 @@ label start:
             $ careful = True
             p "Hey %(stranger_name)s, I'm going to go to the bathroom real quick."
             s "Okay, don't go too far."
+            hide stranger2
             c "He waves you off, unsuspecting."
             c "You trudge over to the man, but he drops something and runs off."
             p "Hey, hold on!"
             c "The man doesn't stop running."
             c "You stop to catch your breath, gasping. Crouching down, you pick up another note."
-            #insert note
-            #That man, he's not of this world.
-            #He's one of many who have sought to destroy us.
-            #He'll try to earn your favor, but don't trust him.
+            c "{i}That man, he's not of this world{/i}"
+            c "{i}He's one of many who have sought to destroy us.{/i}"
+            c "{i}He'll try to earn your favor, but don't trust him.{/i}"
             s "Hey! I'm done over here!"
             c "You shove the note in your pocket and walk back."
+            show stranger2 at right
         "Call out to the man.":
             c "YOLO Achievement earned."
             $ yolo = True
@@ -413,7 +459,7 @@ label start:
     p "Who are you?"
     c "%(stranger_name)s steps back and as if on cue, the note from earlier that day falls out of his pocket."
     c "Your heart drops when you read the rest of the note."
-    c "{i}And whatever you do, don't trust %(stranger_name)s.{i}"
+    c "{i}And whatever you do, don't trust %(stranger_name)s.{/i}"
     c "You don't know what comes over you, but you run away as fast as you can with one thing on your mind."
     c "The ritual site."
     s "Wait!"
@@ -422,9 +468,9 @@ label start:
     c "When you arrive at the ritual site, %(stranger_name)s has stopped following you. He's nowhere to be found."
     c "A large rock on the ritual site gives you instructions."
     #insert note
-    #place the items of your journey here
-    #and this is where it ends
-    #but perhaps, something will come of it
+    c "{i}Place the items of your journey here{/i}"
+    c "{i}and this is where it ends{/i}"
+    c "{i}but perhaps, something will come of it{/i}"
 
     c "All of the items have been placed."
     s "You finally did it."
@@ -512,3 +558,4 @@ label start:
     # This ends the game.
 
     return
+
