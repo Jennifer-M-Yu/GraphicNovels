@@ -25,13 +25,13 @@ label splashscreen:
     scene black
     with Pause(1)
 
-    show text "Jennifer and Abigail Presents..." with dissolve
+    show text "Jennifer Yu and Abigail Zhong Presents..." with dissolve
     with Pause(2)
 
     hide text with dissolve
     with Pause(1)
 
-    show text "Forest of Dreams" with dissolve
+    show text "A Quiet Forest" with dissolve
     with Pause(2)
 
     hide text with dissolve
