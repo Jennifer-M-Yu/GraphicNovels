@@ -38,20 +38,50 @@ image yolo2 = "badge_yolo.png"
 
 image stranger2 = "stranger_name.png"
 image note1 = "note1.png"
+image ritual_instructions = "ritual_instructions.png"
 image bush = "bush.jpg"
 image zipline = "zipline.jpg"
 image ladder = "ladder.jpg"
 image man = "man.png"
+image bag_icon = "bag_icon.png"
+image inventory = "inventory.png"
 define colorz = ""
 define scary_object = ""
 define death = ""
 define scary_place = ""
 define audio.ost = "audio/Dreaming.ogg"
 
-$ eye = 0
-$ mouth = 0
-$ wings = 0
-$ body = 0
+#wings
+image bat_wings = "bat_wings.png"
+image cute_wings = "cute_wings.png"
+image demon_wings = "demon_wings.png"
+image reaper_wings = "reaper_wings.png"
+#tail
+image blue_tail = "blue_tail.png"
+image dragon_tail = "dragon_tail.png"
+image green_tail = "green_tail.png"
+image red_tail = "red_tail.png"
+image yellow_tail = "yellow_tail.png"
+#eyes
+image black_eyes = "black_eyes.png"
+image blue_eyes = "blue_eyes.png"
+image cyclops_eyes = "cyclops_eyes.png"
+image orange_eyes = "orange_eyes.png"
+image slanted_eyes = "slanted_eyes.png"
+image x_eyes = "x_eyes.png"
+#body
+image blue_body = "blue_body.png"
+image green_body = "green_body.png"
+image orange_body = "orange_body.png"
+image pink_body = "pink_body.png"
+image purple_body = "purple_body.png"
+image yellow_body = "yellow_body.png"
+#mouth
+image downturned_mouth = "downturned_mouth.png"
+image grin_mouth = "grin_mouth.png"
+image happy_mouth = "happy_mouth.png"
+image stitch_mouth = "stitch_mouth.png"
+image straight_mouth = "straight_mouth.png"
 
 label splashscreen:
 
