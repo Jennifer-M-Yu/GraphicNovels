@@ -20,11 +20,22 @@ image bg ritual = "ritual.jpg"
 image bg alchemy = "alchemy_circle.jpg"
 
 image adventure2 = "badge_adventure.png"
+image art2 = "badge_art.png"
+image bystander2 = "badge_bystander.png"
+image careful2 = "badge_careful.png"
 image curious2 = "badge_curious.png"
 image gambler2 = "badge_gambler.png"
+image hunt2 = "badge_hunt.png"
 image lazy2 = "badge_lazy.png"
+image loyal2 = "badge_loyal.png"
+image practical2 = "badge_practical.png"
 image safety2 = "badge_safety.png"
 image savage2 = "badge_savage.png"
+image speedy2 = "badge_speedy.png"
+image unlucky2 = "badge_unlucky.png"
+image veg2 = "badge_veg.png"
+image yolo2 = "badge_yolo.png"
+
 image stranger2 = "stranger_name.png"
 image note1 = "note1.png"
 image bush = "bush.jpg"
@@ -95,13 +106,13 @@ label start:
     while boolean:
         menu:
             "Inspect the windows.":
-                show curious2 at truecenter
+                show curious2 at top
                 c "{i}Curious Achievement earned.{/i}"
                 hide curious2
                 $ curious = True
                 c "You're REALLY high up. Seems like an ordinary treehouse."
             "Lie in bed.":
-                show lazy2 at truecenter
+                show lazy2 at top
                 c "{i}Lazy Achievement earned.{/i}"
                 hide lazy2
                 $ lazy = True
@@ -145,7 +156,7 @@ label start:
             "Ask him who he is.":
                 $ boolean = False
             "Tell him to go away.":
-                show savage2 at truecenter
+                show savage2 at top
                 c "{i}Savage Achievement earned.{/i}"
                 hide savage2
                 c "He looks surprised for a moment as if unsure about something but laughs it off."
@@ -177,7 +188,7 @@ label start:
 
     menu:
         "Jump straight down. He did say however I want, after all.":
-            show gambler2 at truecenter
+            show gambler2 at top
             c "{i}Gambler Achievement earned.{/i}"
             hide gambler2
             $ gambler = True
@@ -188,7 +199,7 @@ label start:
             c "A bush breaks your fall and a piece snaps off."
             c "{i}Item obtained. Bushy branch.{/i}"
         "Zipline out of there.":
-            show adventure2 at truecenter
+            show adventure2 at top
             c "{i}Adventurer Achievement earned.{/i}"
             hide adventure2
             $ adventurer = True
@@ -199,7 +210,7 @@ label start:
             s "ACK!"
             c "{i}Item obtained. Zipline clip.{/i}"
         "Take the ladder.":
-            show safety2 at truecenter
+            show safety2 at top
             c "{i}Safety First Achievement earned.{/i}"
             hide safety2
             $ safety = True
@@ -232,13 +243,19 @@ label start:
 
     menu:
         "Something with four legs, like a deer. Maybe watching %(stranger_name)s hunt will reveal something.":
+            show hunt2 at top
             c "{i}Hunter Achievement earned.{/i}"
+            hide hunt2
             $ hunter = True
         "Something that cannot eat you. Berries or plants seem like a safe option.":
+            show veg2 at top
             c "{i}Vegetarian Achievement earned.{/i}"
+            hide veg2
             $ vegetarian = True
         "Something like fish. It'll take a while but at least you can drink some water while you wait.":
+            show practical2 at top
             c "{i}Practical Achievement earned.{/i}"
+            hide practical2
             $ practical = True
 
     if hunter:
@@ -296,7 +313,9 @@ label start:
 
     menu:
         "Tell %(stranger_name)s that someone is there.":
+            show loyal2 at top
             c "{i}Loyal Achievement earned.{/i}"
+            hide loyal2
             $ loyal = True
             p "Hey %(stranger_name)s, I think there's someone over there."
 
@@ -313,7 +332,9 @@ label start:
             c "As %(stranger_name)s walks off, you notice something out of the corner of your eye."
             c "{i}Item obtained. Whistle.{/i}"
         "Tell %(stranger_name)s that you're going to relieve yourself, but secretly go talk to the man.":
+            show careful2 at top
             c "{i}Careful Achievement earned.{/i}"
+            hide careful2
             $ careful = True
             p "Hey %(stranger_name)s, I'm going to go to the bathroom real quick."
             s "Okay, don't go too far."
@@ -331,7 +352,9 @@ label start:
             c "You shove the note in your pocket and walk back."
             show stranger2 at right
         "Call out to the man.":
+            show yolo2 at top
             c "{i}YOLO Achievement earned.{/i}"
+            hide yolo2
             $ yolo = True
             p "HEY! WHAT'S THE MATTER?!"
 
@@ -348,7 +371,9 @@ label start:
             c "As %(stranger_name)s walks off, you notice something in the corner of your eye."
             c "{i}Item obtained. Cell phone.{/i}"
         "Do nothing.":
+            show bystander2 at top
             c "{i}Bystander Achievement earned.{/i}"
+            hide bystander2
             $ bystander = True
             show stranger2 at right
             c "%(stranger_name)s's head whips up and he spots the man. His gaze hardens for a moment."
@@ -405,13 +430,19 @@ label start:
     menu:
         c "There's"
         "an expensive speeding ticket!":
+            show speedy2 at top
             "{i}Speedy Achievement earned.{/i}"
+            hide speedy2
             $ speedy = True
         "a broken mirror!":
+            show unlucky2 at top
             "{i}Unlucky Achievement earned.{/i}"
+            hide unlucky2
             $ unlucky = True
         "graffiti all over my car!":
+            show art2 at top
             "{i}Eye for Art Achievement earned.{/i}"
+            hide art2
             $ eyeforart = True
     p "This is unbelievable!"
     s "I wonder how this happened."
@@ -584,3 +615,4 @@ label start:
     # This ends the game.
 
     return
+
