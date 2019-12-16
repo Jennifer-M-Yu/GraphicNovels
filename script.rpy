@@ -30,6 +30,7 @@ image note1 = "note1.png"
 image bush = "bush.jpg"
 image zipline = "zipline.jpg"
 image ladder = "ladder.jpg"
+image man = "man.png"
 define colorz = ""
 define scary_object = ""
 define death = ""
@@ -275,12 +276,13 @@ label start:
     c "You keep your expression blank."
     p "Sure."
 
+    hide stranger2
 
     scene bg forest
-    show stranger2 at right
     c "A few minutes pass and %(stranger_name)s seems like he won't be done for a while."
 
     #screen shift or shake, noise?
+    show man at truecenter
     c "But something in the distance catches your eye. It's a man."
     c "%(stranger_name)s is busy so you squint at the figure. The man seems to be trying to contact you."
     c "The man desperately jumps up and down and shakes his head. He makes an X motion with his arms and gestures aggressively."
@@ -298,8 +300,10 @@ label start:
             $ loyal = True
             p "Hey %(stranger_name)s, I think there's someone over there."
 
+            show stranger2 at right
             c "%(stranger_name)s's head whips up and he spots the man. His gaze hardens for a moment."
             c "The man visibly freezes and turns to run away."
+            hide man
             c "Your heart starts beating faster."
             p "I can go chase him down and see what he wants."
 
@@ -315,6 +319,7 @@ label start:
             s "Okay, don't go too far."
             hide stranger2
             c "He waves you off, unsuspecting."
+            hide man
             c "You trudge over to the man, but he drops something and runs off."
             p "Hey, hold on!"
             c "The man doesn't stop running."
@@ -330,8 +335,10 @@ label start:
             $ yolo = True
             p "HEY! WHAT'S THE MATTER?!"
 
+            show stranger2 at right
             c "%(stranger_name)s's head whips up and he spots the man. His gaze hardens for a moment."
             c "The man visibly freezes and turns to run away."
+            hide man
             c "Your heart starts beating faster."
             p "I can go chase him down and see what he wants."
 
@@ -343,8 +350,10 @@ label start:
         "Do nothing.":
             c "{i}Bystander Achievement earned.{/i}"
             $ bystander = True
+            show stranger2 at right
             c "%(stranger_name)s's head whips up and he spots the man. His gaze hardens for a moment."
             c "The man visibly freezes and turns to run away."
+            hide man
             c "Your heart starts beating faster."
             p "I can go chase him down and see what he wants."
 
