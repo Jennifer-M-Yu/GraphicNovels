@@ -13,6 +13,12 @@ image bg huntd = "huntd.jpg"
 image bg treehoused = "treehoused.jpg"
 image bg treehouse_no_note = "treehouse_no_note.jpg"
 image bg treehouse_w_note = "treehouse_w_note.jpg"
+image bg car = "car.jpg"
+image bg driving = "driving.jpg"
+image bg house = "house.jpg"
+image bg ritual = "ritual.jpg"
+image bg alchemy = "alchemy_circle.jpg"
+
 image adventure2 = "badge_adventure.png"
 image curious2 = "badge_curious.png"
 image gambler2 = "badge_gambler.png"
@@ -89,13 +95,13 @@ label start:
         menu:
             "Inspect the windows.":
                 show curious2 at truecenter
-                c "Curious Achievement earned."
+                c "{i}Curious Achievement earned.{/i}"
                 hide curious2
                 $ curious = True
                 c "You're REALLY high up. Seems like an ordinary treehouse."
             "Lie in bed.":
                 show lazy2 at truecenter
-                c "Lazy Achievement earned."
+                c "{i}Lazy Achievement earned.{/i}"
                 hide lazy2
                 $ lazy = True
                 c "The bed's really comfortable. For some reason you were sitting on the floor this whole time."
@@ -139,7 +145,7 @@ label start:
                 $ boolean = False
             "Tell him to go away.":
                 show savage2 at truecenter
-                c "Savage Achievement earned."
+                c "{i}Savage Achievement earned.{/i}"
                 hide savage2
                 c "He looks surprised for a moment as if unsure about something but laughs it off."
                 s "That's not very nice. Plus, you're the one that called me here."
@@ -171,7 +177,7 @@ label start:
     menu:
         "Jump straight down. He did say however I want, after all.":
             show gambler2 at truecenter
-            c "Gambler Achievement earned."
+            c "{i}Gambler Achievement earned.{/i}"
             hide gambler2
             $ gambler = True
             s "Interesting choice... okay."
@@ -179,10 +185,10 @@ label start:
             p "OUCH! OOF!"
             s "ACK!"
             c "A bush breaks your fall and a piece snaps off."
-            c "Item obtained. Bushy branch."
+            c "{i}Item obtained. Bushy branch.{/i}"
         "Zipline out of there.":
             show adventure2 at truecenter
-            c "Adventurer Achievement earned."
+            c "{i}Adventurer Achievement earned.{/i}"
             hide adventure2
             $ adventurer = True
             s "That hasn't been used in ages, but sure."
@@ -190,10 +196,10 @@ label start:
             s "You clip yourself and make it about halfway across when suddenly the rope snap."
             p "OUCH! OOF!"
             s "ACK!"
-            c "Item obtained. Zipline clip."
+            c "{i}Item obtained. Zipline clip.{/i}"
         "Take the ladder.":
             show safety2 at truecenter
-            c "Safety First Achievement earned."
+            c "{i}Safety First Achievement earned.{/i}"
             hide safety2
             $ safety = True
             s "There are a few steps missing on it, but eh, it'll be fine."
@@ -201,7 +207,7 @@ label start:
             s "You make it about halfway down and then suddenly a rung of the ladder snaps off."
             p "OUCH! OOF!"
             s "ACK!"
-            c "Item obtained. Ladder piece."
+            c "{i}Item obtained. Ladder piece.{/i}"
 
     scene bg forest
 
@@ -225,13 +231,13 @@ label start:
 
     menu:
         "Something with four legs, like a deer. Maybe watching %(stranger_name)s hunt will reveal something.":
-            c "Hunter Achievement earned."
+            c "{i}Hunter Achievement earned.{/i}"
             $ hunter = True
         "Something that cannot eat you. Berries or plants seem like a safe option.":
-            c "Vegetarian Achievement earned."
+            c "{i}Vegetarian Achievement earned.{/i}"
             $ vegetarian = True
         "Something like fish. It'll take a while but at least you can drink some water while you wait.":
-            c "Practical Achievement earned."
+            c "{i}Practical Achievement earned.{/i}"
             $ practical = True
 
     if hunter:
@@ -241,7 +247,7 @@ label start:
         c "You've never hunted before, but %(stranger_name)s seems to be an expert."
         s "Here, give it a try."
         #tap on screen
-        c "Item obtained. Deer meat."
+        c "{i}Item obtained. Deer meat.{/i}"
     if vegetarian:
         scene bg foraged
         s "Our gathering gear and materials are stored down here. I'll just go grab and get everything set up."
@@ -249,7 +255,7 @@ label start:
         c "You've never gathered food before, but %(stranger_name)s seems to be an expert."
         s "Here, give it a try."
         #tap on screen
-        c "Item obtained. Wild berries."
+        c "{i}Item obtained. Wild berries.{/i}"
     if practical:
         scene bg fishd
         s "Our fishing gear and materials are stored down here. I'll just go grab and get everything set up."
@@ -257,7 +263,7 @@ label start:
         c "You've never fished before, but %(stranger_name)s seems to be an expert."
         s "Here, give it a try."
         #tap on screen
-        c "Item obtained. Large fish."
+        c "{i}Item obtained. Large fish.{/i}"
 
     c "You're proud of yourself for accomplishing such a difficult task and turn to the %(stranger_name)s."
     show stranger2 at right
@@ -288,7 +294,7 @@ label start:
 
     menu:
         "Tell %(stranger_name)s that someone is there.":
-            c "Loyal Achievement earned."
+            c "{i}Loyal Achievement earned.{/i}"
             $ loyal = True
             p "Hey %(stranger_name)s, I think there's someone over there."
 
@@ -300,10 +306,10 @@ label start:
             c "He quickly stops you with a hand around your wrist."
             s "No, it's fine, this is a public forest. He could be dangerous, I'll go check."
             c "...You want to comment on the irony of that but you shut yourself up."
-            c "As %(stranger_name)s walks off, you notice something in the corner of your eye."
-            c "Item obtained. Whistle."
+            c "As %(stranger_name)s walks off, you notice something out of the corner of your eye."
+            c "{i}Item obtained. Whistle.{/i}"
         "Tell %(stranger_name)s that you're going to relieve yourself, but secretly go talk to the man.":
-            c "Careful Achievement earned."
+            c "{i}Careful Achievement earned.{/i}"
             $ careful = True
             p "Hey %(stranger_name)s, I'm going to go to the bathroom real quick."
             s "Okay, don't go too far."
@@ -320,7 +326,7 @@ label start:
             c "You shove the note in your pocket and walk back."
             show stranger2 at right
         "Call out to the man.":
-            c "YOLO Achievement earned."
+            c "{i}YOLO Achievement earned.{/i}"
             $ yolo = True
             p "HEY! WHAT'S THE MATTER?!"
 
@@ -333,9 +339,9 @@ label start:
             s "No, it's fine, this is a public forest. He could be dangerous, I'll go check."
             c "...You want to comment on the irony of that but you shut yourself up."
             c "As %(stranger_name)s walks off, you notice something in the corner of your eye."
-            c "Item obtained. Cell phone."
+            c "{i}Item obtained. Cell phone.{/i}"
         "Do nothing.":
-            c "Bystander Achievement earned."
+            c "{i}Bystander Achievement earned.{/i}"
             $ bystander = True
             c "%(stranger_name)s's head whips up and he spots the man. His gaze hardens for a moment."
             c "The man visibly freezes and turns to run away."
@@ -346,9 +352,9 @@ label start:
             s "No, it's fine, this is a public forest. He could be dangerous, I'll go check."
             c "...You want to comment on the irony of that but you shut yourself up."
             c "As %(stranger_name)s walks off, you notice something in the corner of your eye."
-            c "Item obtained. Mask."
+            c "{i}Item obtained. Mask.{/i}"
 
-    c "You manage to have decent meal. Food you obtained yourself tastes better."
+    c "You manage to have a decent meal. Food you obtained yourself tastes better."
     s "This is pretty delicious."
     $ colorz = renpy.input("You find it weird that the color of the food is")
     if colorz == "":
@@ -373,7 +379,8 @@ label start:
     p "I guess so..."
     s "Well, I'm sure you'll remember eventually."
 
-    #scene change
+    scene bg car
+
     c "You stumble upon an abandoned car."
     p "Isn't this... my car?"
     c "%(stranger_name)s gives you a look and shrugs."
@@ -389,24 +396,24 @@ label start:
     menu:
         c "There's"
         "an expensive speeding ticket!":
-            "Speedy Achievement earned."
+            "{i}Speedy Achievement earned.{/i}"
             $ speedy = True
         "a broken mirror!":
-            "Unlucky Achievement earned."
+            "{i}Unlucky Achievement earned.{/i}"
             $ unlucky = True
         "graffiti all over my car!":
-            "Eye for Art Achievement earned."
+            "{i}Eye for Art Achievement earned.{/i}"
             $ eyeforart = True
     p "This is unbelievable!"
     s "I wonder how this happened."
     p "I'm keeping this as evidence!"
 
     if speedy:
-        "Item obtained. Speeding ticket."
+        "{i}Item obtained. Speeding ticket.{/i}"
     if unlucky:
-        "Item obtained. Broken mirror."
+        "{i}Item obtained. Broken mirror.{/i}"
     if eyeforart:
-        "Item obtained. Spray paint bottle."
+        "{i}Item obtained. Spray paint bottle.{/i}"
 
     p "Hey, the keys are in the car. Why don't we take these and look around a bit?"
     c "It's the perfect opportunity for you to find a way out of here."
@@ -415,6 +422,8 @@ label start:
     p "I don't like people driving my car!"
     c "%(stranger_name)s stares at you."
     s "Okay."
+
+    scene bg driving
 
     c "You drive for a while. It's mostly trees and more trees and you don't know if you'll have enough gas to make it anywehre."
 
@@ -439,9 +448,11 @@ label start:
     p "Let's just check it out."
     c "You stop the car and open the door. %(stranger_name)s follows you."
 
+    scene bg house
+
     p "There a mailbox here."
     c "You walk over and open it."
-    c "Item obtained. Black envelope."
+    c "{i}Item obtained. Black envelope.{/i}"
     c "It's a letter addressed... to you?"
     s "Maybe you shouldn't open that."
     p "It's for me so I'm going to open it."
@@ -465,12 +476,18 @@ label start:
     s "Wait!"
     c "You keep running, %(stranger_name)s hot on your tail."
     c "Somehow, your insticts tell you where to go."
+
+    scene bg ritual
+
     c "When you arrive at the ritual site, %(stranger_name)s has stopped following you. He's nowhere to be found."
+
     c "A large rock on the ritual site gives you instructions."
     #insert note
     c "{i}Place the items of your journey here{/i}"
     c "{i}and this is where it ends{/i}"
     c "{i}but perhaps, something will come of it{/i}"
+
+    scene bg alchemy_circle
 
     c "All of the items have been placed."
     s "You finally did it."
@@ -558,4 +575,3 @@ label start:
     # This ends the game.
 
     return
-
